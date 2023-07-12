@@ -127,11 +127,11 @@ def cast_rays(tdist, origins, directions, radii, ray_shape, diag=True):
   return means, covs
 
 
-def compute_alpha_weights(density, tdist, dirs, opaque_background=False):
+def compute_alpha_weights(density, tdist, dirs, distance_scale=1.0, opaque_background=False):
   """Helper function for computing alpha compositing weights."""
   t_delta = tdist[..., 1:] - tdist[..., :-1]
   delta = t_delta * jnp.linalg.norm(dirs[..., None, :], axis=-1)
-  density_delta = density * delta
+  density_delta = density * delta * distance_scale
 
   if opaque_background:
     # Equivalent to making the final t-interval infinitely wide.
