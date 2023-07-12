@@ -35,9 +35,10 @@ from PIL import Image
 
 # This is ugly, but it works.
 import sys
-sys.path.insert(0,'internal/pycolmap')
-sys.path.insert(0,'internal/pycolmap/pycolmap')
-import pycolmap
+import internal.pycolmap.pycolmap as pycolmap
+# sys.path.insert(0,'internal/pycolmap')
+# sys.path.insert(0,'internal/pycolmap/pycolmap')
+# import pycolmap
 
 
 def load_dataset(split, train_dir, config):
