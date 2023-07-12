@@ -234,6 +234,7 @@ class Model(nn.Module):
           ray_results['density'],
           tdist,
           rays.directions,
+          distance_scale=self.config.distance_scale,
           opaque_background=self.opaque_background,
       )[0]
 
